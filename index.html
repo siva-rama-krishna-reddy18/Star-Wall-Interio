@@ -56,6 +56,66 @@
             background-clip: text;
         }
         
+        /* Gallery Card Image Styles */
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            height: 320px;
+        }
+        
+        .gallery-card-images {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .gallery-card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .gallery-card-image.active {
+            opacity: 1;
+        }
+        
+        .gallery-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 30px;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover .gallery-card-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
+        }
+        
+        .gallery-card-overlay .emoji-icon {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-card {
+                height: 256px;
+            }
+        }
+        
         /* Animations */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -285,71 +345,83 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
-                <!-- Card 1 -->
+                <!-- Card 1 - 3D Wallpapers -->
                 <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
-                    <div class="relative h-64 md:h-80 bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center">
-                        <div class="text-center text-white p-4 md:p-6">
-                            <div class="text-5xl md:text-8xl mb-3 md:mb-4">🎨</div>
-                            <h3 class="text-2xl md:text-3xl font-bold mb-2">3D Wallpapers</h3>
-                            <p class="text-base md:text-xl opacity-90">Depth Effects & Textures</p>
+                    <div class="gallery-card relative">
+                        <div class="gallery-card-images" data-category="3d-wallpapers">
+                            <!-- Images will be loaded dynamically -->
                         </div>
-                        <div class="absolute top-4 right-4 bg-yellow-400 text-black px-2 md:px-3 py-1 rounded-full text-xs font-bold">POPULAR</div>
+                        <div class="gallery-card-overlay">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-2 text-white drop-shadow-lg">3D Wallpapers</h3>
+                            <p class="text-sm md:text-lg text-white drop-shadow-md">Depth Effects & Textures</p>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-yellow-400 text-black px-3 md:px-4 py-1.5 rounded-full text-xs font-bold z-10 shadow-lg">POPULAR</div>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Card 2 - 5D Wallpapers -->
                 <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
-                    <div class="relative h-64 md:h-80 bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center">
-                        <div class="text-center text-white p-4 md:p-6">
-                            <div class="text-5xl md:text-8xl mb-3 md:mb-4">✨</div>
-                            <h3 class="text-2xl md:text-3xl font-bold mb-2">5D Wallpapers</h3>
-                            <p class="text-base md:text-xl opacity-90">Ultra-Realistic Quality</p>
+                    <div class="gallery-card relative">
+                        <div class="gallery-card-images" data-category="5d-wallpapers">
+                            <!-- Images will be loaded dynamically -->
                         </div>
-                        <div class="absolute top-4 right-4 bg-red-500 text-white px-2 md:px-3 py-1 rounded-full text-xs font-bold">TRENDING</div>
+                        <div class="gallery-card-overlay">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-2 text-white drop-shadow-lg">5D Wallpapers</h3>
+                            <p class="text-sm md:text-lg text-white drop-shadow-md">Ultra-Realistic Quality</p>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 md:px-4 py-1.5 rounded-full text-xs font-bold z-10 shadow-lg">TRENDING</div>
                     </div>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Card 3 - Window Blinds -->
                 <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
-                    <div class="relative h-64 md:h-80 bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
-                        <div class="text-center text-white p-4 md:p-6">
-                            <div class="text-5xl md:text-8xl mb-3 md:mb-4">🪟</div>
-                            <h3 class="text-2xl md:text-3xl font-bold mb-2">Window Blinds</h3>
-                            <p class="text-base md:text-xl opacity-90">Roller, Venetian, Zebra</p>
+                    <div class="gallery-card relative">
+                        <div class="gallery-card-images" data-category="window-blinds">
+                            <!-- Images will be loaded dynamically -->
                         </div>
-                        <div class="absolute top-4 right-4 bg-green-500 text-white px-2 md:px-3 py-1 rounded-full text-xs font-bold">NEW</div>
+                        <div class="gallery-card-overlay">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-2 text-white drop-shadow-lg">Window Blinds</h3>
+                            <p class="text-sm md:text-lg text-white drop-shadow-md">Roller, Venetian, Zebra</p>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 md:px-4 py-1.5 rounded-full text-xs font-bold z-10 shadow-lg">NEW</div>
                     </div>
                 </div>
 
-                <!-- Card 4 -->
+                <!-- Card 4 - Designer Curtains -->
                 <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
-                    <div class="relative h-64 md:h-80 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-                        <div class="text-center text-white p-4 md:p-6">
-                            <div class="text-5xl md:text-8xl mb-3 md:mb-4">🚪</div>
-                            <h3 class="text-2xl md:text-3xl font-bold mb-2">Designer Curtains</h3>
-                            <p class="text-base md:text-xl opacity-90">Sheer & Blackout</p>
+                    <div class="gallery-card relative">
+                        <div class="gallery-card-images" data-category="curtains">
+                            <!-- Images will be loaded dynamically -->
                         </div>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
-                    <div class="relative h-64 md:h-80 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                        <div class="text-center text-white p-4 md:p-6">
-                            <div class="text-5xl md:text-8xl mb-3 md:mb-4">🏗️</div>
-                            <h3 class="text-2xl md:text-3xl font-bold mb-2">Vinyl Flooring</h3>
-                            <p class="text-base md:text-xl opacity-90">Waterproof & Durable</p>
+                        <div class="gallery-card-overlay">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-2 text-white drop-shadow-lg">Designer Curtains</h3>
+                            <p class="text-sm md:text-lg text-white drop-shadow-md">Sheer & Blackout</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 6 -->
+                <!-- Card 5 - Vinyl Flooring -->
                 <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
-                    <div class="relative h-64 md:h-80 bg-gradient-to-br from-teal-500 to-green-600 flex items-center justify-center">
-                        <div class="text-center text-white p-4 md:p-6">
-                            <div class="text-5xl md:text-8xl mb-3 md:mb-4">🌿</div>
-                            <h3 class="text-2xl md:text-3xl font-bold mb-2">Artificial Grass</h3>
-                            <p class="text-base md:text-xl opacity-90">Indoor & Outdoor</p>
+                    <div class="gallery-card relative">
+                        <div class="gallery-card-images" data-category="flooring">
+                            <!-- Images will be loaded dynamically -->
+                        </div>
+                        <div class="gallery-card-overlay">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-2 text-white drop-shadow-lg">Vinyl Flooring</h3>
+                            <p class="text-sm md:text-lg text-white drop-shadow-md">Waterproof & Durable</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 - Artificial Grass -->
+                <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
+                    <div class="gallery-card relative">
+                        <div class="gallery-card-images" data-category="grass">
+                            <!-- Images will be loaded dynamically -->
+                        </div>
+                        <div class="gallery-card-overlay">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-2 text-white drop-shadow-lg">Artificial Grass</h3>
+                            <p class="text-sm md:text-lg text-white drop-shadow-md">Indoor & Outdoor</p>
                         </div>
                     </div>
                 </div>
@@ -362,7 +434,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 md:mb-16 scroll-reveal">
                 <span class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4">OUR LOCATIONS</span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold gradient-text mb-4">Visit Our Showrooms</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold gradient-text mb-4">Visit Our Branches</h2>
                 <p class="text-gray-600 text-base md:text-xl max-w-2xl mx-auto">Experience our collection in person at our Hyderabad locations</p>
             </div>
 
@@ -442,8 +514,8 @@
                     <i class="fas fa-clock text-3xl md:text-4xl text-purple-600 mb-4"></i>
                     <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">Business Hours</h3>
                     <p class="text-base md:text-lg text-gray-600">
-                        <strong>Monday - Saturday:</strong> 9:00 AM - 8:00 PM<br/>
-                        <strong>Sunday:</strong> 10:00 AM - 6:00 PM
+                        <strong>Monday - Saturday:</strong> 10:00 AM - 8:00 PM<br/>
+                        <strong>Sunday:</strong> 10:00 AM - 9:00 PM
                     </p>
                 </div>
             </div>
@@ -653,6 +725,111 @@
     </a>
 
     <script>
+        // Image Gallery Configuration
+        // Replace these placeholder images with your actual image paths
+        const galleryImages = {
+            '3d-wallpapers': [
+                'images/3d/wallpaper1.jpg',
+                'images/3d/wallpaper2.jpg',
+                'images/3d/wallpaper3.jpg',
+                'images/3d/wallpaper4.jpg',
+                'images/3d/wallpaper5.jpg',
+                'images/3d/wallpaper6.jpg',
+                'images/3d/wallpaper7.jpg',
+                'images/3d/wallpaper8.jpg',
+                'images/3d/wallpaper9.jpg',
+       
+            ],
+            '5d-wallpapers': [
+                'images/5d/wallpaper1.jpg',
+                'images/5d/wallpaper2.jpg',
+                'images/5d/wallpaper3.jpg',
+                'images/5d/wallpaper4.jpg',
+                'images/5d/wallpaper5.jpg',
+                'images/5d/wallpaper6.jpg',
+                
+            ],
+            'window-blinds': [
+                'images/blinds/blind1.jpg',
+                'images/blinds/blind2.jpg',
+                'images/blinds/blind3.jpg',
+                'images/blinds/blind4.png',
+                'images/blinds/blind5.jpg',
+                
+            ],
+            'curtains': [
+                'images/curtains/curtain1.jpg',
+                'images/curtains/curtain2.jpg',
+                'images/curtains/curtain3.jpg',
+                'images/curtains/curtain4.jpg',
+                            ],
+            'flooring': [
+                'images/flooring/floor1.jpg',
+                'images/flooring/floor2.avif',
+                'images/flooring/floor3.jpg',
+                'images/flooring/floor4.jpg',
+                'images/flooring/floor5.jpg',
+                'images/flooring/floor6.jpeg',
+                'images/flooring/floor7.jpg',
+                
+            ],
+            'grass': [
+                'images/grass/grass1.avif',
+                'images/grass/grass2.jpg',
+                'images/grass/grass3.jpg',
+                'images/grass/grass4.jpg',
+                'images/grass/grass5.jpg',
+                'images/grass/grass6.jpg',
+                'images/grass/grass7.jpg',
+                'images/grass/grass8.jpg',
+                
+            ]
+        };
+
+        // Initialize Gallery
+        function initializeGallery() {
+            const galleryContainers = document.querySelectorAll('.gallery-card-images');
+            
+            galleryContainers.forEach(container => {
+                const category = container.getAttribute('data-category');
+                const images = galleryImages[category];
+                
+                if (images && images.length > 0) {
+                    // Create img elements for each image
+                    images.forEach((imageSrc, index) => {
+                        const img = document.createElement('img');
+                        img.src = imageSrc;
+                        img.alt = `${category} ${index + 1}`;
+                        img.className = 'gallery-card-image';
+                        if (index === 0) {
+                            img.classList.add('active');
+                        }
+                        container.appendChild(img);
+                    });
+                    
+                    // Start rotation for this category
+                    startImageRotation(container, images.length);
+                }
+            });
+        }
+
+        // Start Image Rotation
+        function startImageRotation(container, imageCount) {
+            let currentIndex = 0;
+            const images = container.querySelectorAll('.gallery-card-image');
+            
+            setInterval(() => {
+                // Remove active class from current image
+                images[currentIndex].classList.remove('active');
+                
+                // Move to next image
+                currentIndex = (currentIndex + 1) % imageCount;
+                
+                // Add active class to next image
+                images[currentIndex].classList.add('active');
+            }, 3000); // Change image every 3 seconds
+        }
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -701,6 +878,9 @@
                 }
             });
         });
+
+        // Initialize gallery when page loads
+        window.addEventListener('DOMContentLoaded', initializeGallery);
     </script>
 </body>
 </html>
