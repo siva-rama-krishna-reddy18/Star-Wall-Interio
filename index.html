@@ -6,6 +6,7 @@
     <title>Star Wall Interio - Premium 3D & 5D Wallpapers | Hyderabad</title>
     <meta name="description" content="Transform your space with premium 3D and 5D wallpapers. Professional installation, custom designs, competitive pricing. Hyderabad's #1 wallpaper experts.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -15,12 +16,12 @@
         }
         html { scroll-behavior: smooth; }
         
-        /* Enhanced Hero Gradient with Animation */
+        /* Hero Gradient */
         .hero-gradient { 
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             background-size: 200% 200%;
             animation: gradientShift 15s ease infinite;
-            min-height: 85vh;
+            min-height: 70vh;
             position: relative;
             overflow: hidden;
         }
@@ -31,7 +32,7 @@
             100% { background-position: 0% 50%; }
         }
         
-        /* Floating Particles Background */
+        /* Floating Particles */
         .hero-gradient::before {
             content: '';
             position: absolute;
@@ -39,8 +40,7 @@
             height: 100%;
             background-image: 
                 radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
             animation: particleFloat 20s ease-in-out infinite;
         }
         
@@ -56,138 +56,36 @@
             background-clip: text;
         }
         
-        /* Fade In Animations */
+        /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        /* Apply Animations */
-        .animate-fadeInUp {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .animate-fadeInDown {
-            animation: fadeInDown 0.8s ease-out forwards;
-        }
-        
-        .animate-fadeIn {
-            animation: fadeIn 1s ease-out forwards;
-        }
-        
-        .animate-scaleIn {
-            animation: scaleIn 0.6s ease-out forwards;
-        }
-        
-        .animate-slideInLeft {
-            animation: slideInLeft 0.8s ease-out forwards;
-        }
-        
-        .animate-slideInRight {
-            animation: slideInRight 0.8s ease-out forwards;
-        }
-        
-        /* Delay Classes */
-        .delay-100 { animation-delay: 0.1s; opacity: 0; }
-        .delay-200 { animation-delay: 0.2s; opacity: 0; }
-        .delay-300 { animation-delay: 0.3s; opacity: 0; }
-        .delay-400 { animation-delay: 0.4s; opacity: 0; }
-        .delay-500 { animation-delay: 0.5s; opacity: 0; }
-        .delay-600 { animation-delay: 0.6s; opacity: 0; }
-        
-        /* Enhanced Card Hover */
         .card-hover {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-        
-        .card-hover::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 24px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .card-hover:hover::before {
-            opacity: 1;
         }
         
         .card-hover:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
         
-        /* Floating WhatsApp Button */
+        /* WhatsApp Button */
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: white;
             border-radius: 50%;
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -200,7 +98,6 @@
         
         .whatsapp-float:hover {
             transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 15px 50px rgba(37, 211, 102, 0.7);
         }
         
         @keyframes pulse {
@@ -208,12 +105,12 @@
             50% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
         }
         
-        /* Header Animation */
         header {
             animation: fadeInDown 0.6s ease-out;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.98);
         }
         
-        /* Button Hover Effects */
         .btn-primary {
             position: relative;
             overflow: hidden;
@@ -243,7 +140,6 @@
             z-index: 1;
         }
         
-        /* Scroll Reveal Animation */
         .scroll-reveal {
             opacity: 0;
             transform: translateY(50px);
@@ -255,34 +151,16 @@
             transform: translateY(0);
         }
         
-        /* Stats Counter Animation */
-        @keyframes countUp {
-            from { opacity: 0; transform: scale(0.5); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        .stat-number {
-            animation: countUp 0.6s ease-out forwards;
-        }
-        
-        /* Offer Banner Slide */
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
         .offer-banner {
             animation: slideDown 0.6s ease-out 0.8s forwards;
             opacity: 0;
         }
         
-        /* Hero Content Stagger */
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
         .hero-title {
             animation: fadeInUp 1s ease-out 0.3s forwards;
             opacity: 0;
@@ -297,51 +175,94 @@
             animation: fadeInUp 1s ease-out 0.7s forwards;
             opacity: 0;
         }
+
+        /* Mobile Menu Animation */
+        @keyframes slideInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #mobileMenu.active {
+            animation: slideInFromTop 0.3s ease-out;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .hero-gradient {
+                min-height: 60vh;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
-    <header class="bg-white shadow-md fixed w-full top-0 z-50">
-        <nav class="container mx-auto px-4 py-4">
+    <header class="fixed w-full top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-4 py-3 md:py-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-3">
-                    <div class="w-15 h-16 bg-gradient-to-br from-purple-600 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg transform hover:rotate-12 transition-transform duration-300">
-                        <img src="star-wall-symbol.jpg" alt="Star Wall Interio Logo" class="w-full h-full object-contain">
+                <div class="flex items-center space-x-2 md:space-x-3">
+                    <div class="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                        <img src="star-wall-logo.png" alt="Star Wall Interio Logo" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <h1 class="text-2xl font-bold gradient-text">Star Wall Interio</h1>
-                        <p class="text-xs text-gray-600 font-medium">Premium 3D & 5D Wallpapers</p>
+                        <h1 class="text-base sm:text-xl md:text-2xl font-bold gradient-text">Star Wall Interio</h1>
+                        <p class="text-xs text-gray-600 font-medium hidden sm:block">Premium 3D & 5D Wallpapers</p>
                     </div>
                 </div>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#home" class="text-gray-700 hover:text-purple-600 font-semibold transition transform hover:scale-110">Home</a>
-                    <a href="#gallery" class="text-gray-700 hover:text-purple-600 font-semibold transition transform hover:scale-110">Gallery</a>
-                    <a href="#services" class="text-gray-700 hover:text-purple-600 font-semibold transition transform hover:scale-110">Services</a>
-                    <a href="#about" class="text-gray-700 hover:text-purple-600 font-semibold transition transform hover:scale-110">About</a>
-                    <a href="#contact" class="btn-primary bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
-                        <span>Contact Us</span>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 items-center">
+                    <a href="#home" class="text-gray-700 hover:text-purple-600 font-semibold transition">Home</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-purple-600 font-semibold transition">Gallery</a>
+                    <a href="#services" class="text-gray-700 hover:text-purple-600 font-semibold transition">Services</a>
+                    <a href="#branches" class="text-gray-700 hover:text-purple-600 font-semibold transition">Branches</a>
+                    <a href="#about" class="text-gray-700 hover:text-purple-600 font-semibold transition">About</a>
+                    <a href="#contact" class="btn-primary bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-semibold">
+                        <span>Contact</span>
                     </a>
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-gray-700 p-2 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden lg:hidden mt-4 pb-2 space-y-2">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-purple-600 font-semibold border-b border-gray-100">Home</a>
+                <a href="#gallery" class="block py-2 text-gray-700 hover:text-purple-600 font-semibold border-b border-gray-100">Gallery</a>
+                <a href="#services" class="block py-2 text-gray-700 hover:text-purple-600 font-semibold border-b border-gray-100">Services</a>
+                <a href="#branches" class="block py-2 text-gray-700 hover:text-purple-600 font-semibold border-b border-gray-100">Branches</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-purple-600 font-semibold border-b border-gray-100">About</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-purple-600 font-semibold">Contact</a>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-20 pb-0 hero-gradient text-white relative">
+    <section id="home" class="pt-16 md:pt-20 pb-0 hero-gradient text-white relative">
         <div class="container mx-auto px-4">
-            <div class="max-w-5xl mx-auto text-center pt-16 pb-6 relative z-10">
-                <h2 class="hero-title text-6xl md:text-7xl lg:text-8xl font-extrabold mb-8 leading-tight">
+            <div class="max-w-5xl mx-auto text-center py-12 md:py-20 relative z-10">
+                <h2 class="hero-title text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 md:mb-8 leading-tight">
                     Transform Your Space<br/>
                     <span class="text-yellow-300">with Stunning Wallpapers</span>
                 </h2>
-                <p class="hero-subtitle text-2xl md:text-3xl mb-12 text-purple-100 font-light">
+                <p class="hero-subtitle text-base sm:text-lg md:text-2xl mb-8 md:mb-12 text-purple-100 font-light px-4">
                     Premium 3D & 5D wallpapers that make your walls come alive
                 </p>
-                <div class="hero-buttons flex flex-col sm:flex-row gap-6 justify-center">
-                    <a href="#gallery" class="btn-primary bg-white text-purple-600 px-12 py-5 rounded-full font-bold text-xl hover:bg-gray-100 transition shadow-2xl transform hover:scale-105">
+                <div class="hero-buttons flex flex-col sm:flex-row gap-4 md:gap-6 justify-center px-4">
+                    <a href="#gallery" class="btn-primary bg-white text-purple-600 px-8 md:px-12 py-3 md:py-5 rounded-full font-bold text-base md:text-xl hover:bg-gray-100 transition shadow-2xl">
                         <span>Explore Gallery →</span>
                     </a>
-                    <a href="https://wa.me/919959509911?text=Hi%20Star%20Wall%20Interio!%20I%20want%20a%20free%20quote" target="_blank" class="btn-primary bg-green-500 text-white px-12 py-5 rounded-full font-bold text-xl hover:bg-green-600 transition shadow-2xl transform hover:scale-105">
+                    <a href="https://wa.me/919959509911?text=Hi%20Star%20Wall%20Interio!%20I%20want%20a%20free%20quote" target="_blank" class="btn-primary bg-green-500 text-white px-8 md:px-12 py-3 md:py-5 rounded-full font-bold text-base md:text-xl hover:bg-green-600 transition shadow-2xl">
                         <span>📱 Get Free Quote</span>
                     </a>
                 </div>
@@ -350,85 +271,85 @@
     </section>
 
     <!-- Offer Banner -->
-    <div class="offer-banner bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 py-4 text-center">
-        <p class="text-white text-lg md:text-xl font-bold">🎉 LIMITED OFFER: Get 20% OFF on all wallpaper installations! | 📞 Call: +91 99595 09911 | ✨ FREE Consultation</p>
+    <div class="offer-banner bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 py-3 md:py-4 text-center px-4">
+        <p class="text-white text-sm md:text-xl font-bold">🎉 LIMITED OFFER: Get 20% OFF | 📞 +91 99595 09911 | ✨ FREE Consultation</p>
     </div>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-white">
+    <section id="gallery" class="py-12 md:py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 scroll-reveal">
-                <span class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">OUR COLLECTION</span>
-                <h2 class="text-5xl md:text-6xl font-extrabold gradient-text mb-4">Stunning Wallpaper Designs</h2>
-                <p class="text-gray-600 text-xl max-w-2xl mx-auto">Explore our premium collection of 3D & 5D wallpapers</p>
+            <div class="text-center mb-12 md:mb-16 scroll-reveal">
+                <span class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4">OUR COLLECTION</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold gradient-text mb-4">Stunning Wallpaper Designs</h2>
+                <p class="text-gray-600 text-base md:text-xl max-w-2xl mx-auto px-4">Explore our premium collection of 3D & 5D wallpapers</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
                 <!-- Card 1 -->
                 <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
-                    <div class="relative h-80 bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center">
-                        <div class="text-center text-white p-6">
-                            <div class="text-8xl mb-4">🎨</div>
-                            <h3 class="text-3xl font-bold mb-2">3D Wallpapers</h3>
-                            <p class="text-xl opacity-90">Depth Effects & Textures</p>
+                    <div class="relative h-64 md:h-80 bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center">
+                        <div class="text-center text-white p-4 md:p-6">
+                            <div class="text-5xl md:text-8xl mb-3 md:mb-4">🎨</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-2">3D Wallpapers</h3>
+                            <p class="text-base md:text-xl opacity-90">Depth Effects & Textures</p>
                         </div>
-                        <div class="absolute top-4 right-4 bg-yellow-400 text-black px-3 py-1 rounded-full text-xs font-bold animate-pulse">POPULAR</div>
+                        <div class="absolute top-4 right-4 bg-yellow-400 text-black px-2 md:px-3 py-1 rounded-full text-xs font-bold">POPULAR</div>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
-                    <div class="relative h-80 bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center">
-                        <div class="text-center text-white p-6">
-                            <div class="text-8xl mb-4">✨</div>
-                            <h3 class="text-3xl font-bold mb-2">5D Wallpapers</h3>
-                            <p class="text-xl opacity-90">Ultra-Realistic Quality</p>
+                    <div class="relative h-64 md:h-80 bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center">
+                        <div class="text-center text-white p-4 md:p-6">
+                            <div class="text-5xl md:text-8xl mb-3 md:mb-4">✨</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-2">5D Wallpapers</h3>
+                            <p class="text-base md:text-xl opacity-90">Ultra-Realistic Quality</p>
                         </div>
-                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">TRENDING</div>
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-2 md:px-3 py-1 rounded-full text-xs font-bold">TRENDING</div>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
-                    <div class="relative h-80 bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
-                        <div class="text-center text-white p-6">
-                            <div class="text-8xl mb-4">🪟</div>
-                            <h3 class="text-3xl font-bold mb-2">Window Blinds</h3>
-                            <p class="text-xl opacity-90">Roller, Venetian, Zebra</p>
+                    <div class="relative h-64 md:h-80 bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
+                        <div class="text-center text-white p-4 md:p-6">
+                            <div class="text-5xl md:text-8xl mb-3 md:mb-4">🪟</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-2">Window Blinds</h3>
+                            <p class="text-base md:text-xl opacity-90">Roller, Venetian, Zebra</p>
                         </div>
-                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">NEW</div>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-2 md:px-3 py-1 rounded-full text-xs font-bold">NEW</div>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
                 <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
-                    <div class="relative h-80 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-                        <div class="text-center text-white p-6">
-                            <div class="text-8xl mb-4">🪟</div>
-                            <h3 class="text-3xl font-bold mb-2">Designer Curtains</h3>
-                            <p class="text-xl opacity-90">Sheer & Blackout</p>
+                    <div class="relative h-64 md:h-80 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+                        <div class="text-center text-white p-4 md:p-6">
+                            <div class="text-5xl md:text-8xl mb-3 md:mb-4">🚪</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-2">Designer Curtains</h3>
+                            <p class="text-base md:text-xl opacity-90">Sheer & Blackout</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 5 -->
                 <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
-                    <div class="relative h-80 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                        <div class="text-center text-white p-6">
-                            <div class="text-8xl mb-4">🏗️</div>
-                            <h3 class="text-3xl font-bold mb-2">Vinyl Flooring</h3>
-                            <p class="text-xl opacity-90">Waterproof & Durable</p>
+                    <div class="relative h-64 md:h-80 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                        <div class="text-center text-white p-4 md:p-6">
+                            <div class="text-5xl md:text-8xl mb-3 md:mb-4">🏗️</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-2">Vinyl Flooring</h3>
+                            <p class="text-base md:text-xl opacity-90">Waterproof & Durable</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 6 -->
                 <div class="card-hover rounded-3xl overflow-hidden shadow-xl bg-white scroll-reveal">
-                    <div class="relative h-80 bg-gradient-to-br from-teal-500 to-green-600 flex items-center justify-center">
-                        <div class="text-center text-white p-6">
-                            <div class="text-8xl mb-4">🌿</div>
-                            <h3 class="text-3xl font-bold mb-2">Artificial Grass</h3>
-                            <p class="text-xl opacity-90">Indoor & Outdoor</p>
+                    <div class="relative h-64 md:h-80 bg-gradient-to-br from-teal-500 to-green-600 flex items-center justify-center">
+                        <div class="text-center text-white p-4 md:p-6">
+                            <div class="text-5xl md:text-8xl mb-3 md:mb-4">🌿</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-2">Artificial Grass</h3>
+                            <p class="text-base md:text-xl opacity-90">Indoor & Outdoor</p>
                         </div>
                     </div>
                 </div>
@@ -436,36 +357,117 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="py-20 bg-gray-50">
+    <!-- Branches Section -->
+    <section id="branches" class="py-12 md:py-20 bg-gradient-to-br from-purple-50 to-pink-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12 scroll-reveal">
-                <h2 class="text-5xl md:text-6xl font-extrabold gradient-text mb-4">Affordable Pricing</h2>
-                <p class="text-gray-600 text-xl">Premium quality at competitive prices</p>
+            <div class="text-center mb-12 md:mb-16 scroll-reveal">
+                <span class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4">OUR LOCATIONS</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold gradient-text mb-4">Visit Our Showrooms</h2>
+                <p class="text-gray-600 text-base md:text-xl max-w-2xl mx-auto">Experience our collection in person at our Hyderabad locations</p>
             </div>
-            <div class="max-w-4xl mx-auto bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl p-12 md:p-16 text-white shadow-2xl scroll-reveal transform hover:scale-105 transition-transform duration-300">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+                <!-- Branch 1 - Chanda Nagar -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition scroll-reveal">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-2xl md:text-3xl text-purple-600"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2">Star Wall Interio - Chanda Nagar</h3>
+                            <div class="flex items-start space-x-2 text-gray-600 mb-4">
+                                <i class="fas fa-location-dot mt-1 text-purple-600"></i>
+                                <p class="text-sm md:text-base leading-relaxed">
+                                    1st floor, 3-8, NH65, opposite to RS Brothers<br/>
+                                    Gangram, Chanda Nagar<br/>
+                                    Hyderabad, Telangana 500050
+                                </p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://www.google.com/maps/search/?api=1&query=1st+floor+3-8+NH65+opposite+RS+Brothers+Gangram+Chanda+Nagar+Hyderabad" target="_blank" class="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition text-center">
+                                    <i class="fas fa-directions mr-2"></i>Get Directions
+                                </a>
+                                <a href="tel:+919959509911" class="flex-1 bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition text-center">
+                                    <i class="fas fa-phone mr-2"></i>Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch 2 - Pragathi Nagar -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition scroll-reveal">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-2xl md:text-3xl text-blue-600"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2">Wall ON Interior - Pragathi Nagar</h3>
+                            <div class="flex items-start space-x-2 text-gray-600 mb-4">
+                                <i class="fas fa-location-dot mt-1 text-blue-600"></i>
+                                <p class="text-sm md:text-base leading-relaxed">
+                                    1st floor, Peacock Junction<br/>
+                                    Beside SBI Bank<br/>
+                                    Pragathi Nagar, Hyderabad, Telangana 500090
+                                </p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://www.google.com/maps/search/?api=1&query=1st+floor+Peacock+Junction+beside+SBI+Bank+Pragathi+Nagar+Hyderabad" target="_blank" class="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition text-center">
+                                    <i class="fas fa-directions mr-2"></i>Get Directions
+                                </a>
+                                <a href="tel:+919959509911" class="flex-1 bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition text-center">
+                                    <i class="fas fa-phone mr-2"></i>Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="mt-8 md:mt-12 text-center scroll-reveal">
+                <div class="inline-block bg-white rounded-3xl p-6 md:p-8 shadow-xl">
+                    <i class="fas fa-clock text-3xl md:text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">Business Hours</h3>
+                    <p class="text-base md:text-lg text-gray-600">
+                        <strong>Monday - Saturday:</strong> 9:00 AM - 8:00 PM<br/>
+                        <strong>Sunday:</strong> 10:00 AM - 6:00 PM
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 md:mb-12 scroll-reveal">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold gradient-text mb-4">Affordable Pricing</h2>
+                <p class="text-gray-600 text-base md:text-xl">Premium quality at competitive prices</p>
+            </div>
+            <div class="max-w-4xl mx-auto bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl p-8 md:p-16 text-white shadow-2xl scroll-reveal">
                 <div class="text-center">
-                    <div class="inline-block bg-yellow-400 text-black px-6 py-3 rounded-full text-sm font-bold mb-8 animate-bounce">🔥 BEST PRICE GUARANTEE</div>
-                    <h3 class="text-4xl md:text-5xl font-extrabold mb-6">Starting from <span class="text-7xl md:text-8xl block my-4">₹40</span><span class="text-3xl">/sq ft</span></h3>
-                    <ul class="text-lg md:text-xl space-y-4 mb-10 text-left max-w-md mx-auto">
+                    <div class="inline-block bg-yellow-400 text-black px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold mb-6 md:mb-8">🔥 BEST PRICE GUARANTEE</div>
+                    <h3 class="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4 md:mb-6">Starting from <span class="text-5xl sm:text-6xl md:text-8xl block my-3 md:my-4">₹40</span><span class="text-xl md:text-3xl">/sq ft</span></h3>
+                    <ul class="text-sm sm:text-base md:text-xl space-y-3 md:space-y-4 mb-8 md:mb-10 text-left max-w-md mx-auto">
                         <li class="flex items-center space-x-3">
-                            <span class="text-2xl">✅</span>
+                            <i class="fas fa-check-circle text-xl md:text-2xl"></i>
                             <span>Premium Quality Materials</span>
                         </li>
                         <li class="flex items-center space-x-3">
-                            <span class="text-2xl">✅</span>
+                            <i class="fas fa-check-circle text-xl md:text-2xl"></i>
                             <span>Professional Installation</span>
                         </li>
                         <li class="flex items-center space-x-3">
-                            <span class="text-2xl">✅</span>
+                            <i class="fas fa-check-circle text-xl md:text-2xl"></i>
                             <span>Free Consultation</span>
                         </li>
                         <li class="flex items-center space-x-3">
-                            <span class="text-2xl">✅</span>
+                            <i class="fas fa-check-circle text-xl md:text-2xl"></i>
                             <span>100% Quality Guaranteed</span>
                         </li>
                     </ul>
-                    <a href="https://wa.me/919959509911?text=I%20want%20a%20quote" target="_blank" class="btn-primary inline-block bg-white text-purple-600 px-12 py-5 rounded-full font-bold text-xl hover:bg-gray-100 transition shadow-xl transform hover:scale-105">
+                    <a href="https://wa.me/919959509911?text=I%20want%20a%20quote" target="_blank" class="btn-primary inline-block bg-white text-purple-600 px-8 md:px-12 py-3 md:py-5 rounded-full font-bold text-base md:text-xl hover:bg-gray-100 transition shadow-xl">
                         <span>Get Your Free Quote Now →</span>
                     </a>
                 </div>
@@ -474,109 +476,109 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
+    <section id="services" class="py-12 md:py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 scroll-reveal">
-                <span class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">WHAT WE OFFER</span>
-                <h2 class="text-5xl md:text-6xl font-extrabold gradient-text mb-4">Complete Interior Solutions</h2>
-                <p class="text-gray-600 text-xl max-w-2xl mx-auto">From consultation to installation, we handle everything</p>
+            <div class="text-center mb-12 md:mb-16 scroll-reveal">
+                <span class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4">WHAT WE OFFER</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold gradient-text mb-4">Complete Interior Solutions</h2>
+                <p class="text-gray-600 text-base md:text-xl max-w-2xl mx-auto">From consultation to installation, we handle everything</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-10 rounded-3xl shadow-lg hover:shadow-2xl transition scroll-reveal">
-                    <div class="text-6xl mb-6">🎨</div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">3D & 5D Wallpapers</h3>
-                    <p class="text-gray-600 text-lg">Premium imported wallpapers with depth effects, textured designs, and modern finishes for all spaces</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 md:p-10 rounded-3xl shadow-lg hover:shadow-2xl transition scroll-reveal">
+                    <div class="text-4xl md:text-6xl mb-4 md:mb-6"><i class="fas fa-paint-roller text-purple-600"></i></div>
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">3D & 5D Wallpapers</h3>
+                    <p class="text-gray-600 text-sm md:text-lg">Premium imported wallpapers with depth effects and textures</p>
                 </div>
 
-                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-10 rounded-3xl shadow-lg hover:shadow-2xl transition scroll-reveal">
-                    <div class="text-6xl mb-6">🪟</div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Window Blinds</h3>
-                    <p class="text-gray-600 text-lg">Roller, Venetian, Vertical, Zebra, Wooden, and Aluminum blinds for all window types</p>
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 md:p-10 rounded-3xl shadow-lg hover:shadow-2xl transition scroll-reveal">
+                    <div class="text-4xl md:text-6xl mb-4 md:mb-6"><i class="fas fa-window-maximize text-blue-600"></i></div>
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">Window Blinds</h3>
+                    <p class="text-gray-600 text-sm md:text-lg">Roller, Venetian, Vertical, and Zebra blinds</p>
                 </div>
 
-                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-10 rounded-3xl shadow-lg hover:shadow-2xl transition scroll-reveal">
-                    <div class="text-6xl mb-6">🚪</div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Designer Curtains</h3>
-                    <p class="text-gray-600 text-lg">Sheer curtains, Blackout curtains, Embroidered drapes, and custom-designed treatments</p>
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 md:p-10 rounded-3xl shadow-lg hover:shadow-2xl transition scroll-reveal">
+                    <div class="text-4xl md:text-6xl mb-4 md:mb-6"><i class="fas fa-wind text-green-600"></i></div>
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">Designer Curtains</h3>
+                    <p class="text-gray-600 text-sm md:text-lg">Sheer, Blackout, and Embroidered curtains</p>
                 </div>
 
-                <div class="bg-gradient-to-br from-orange-50 to-red-50 p-10 rounded-3xl shadow-lg hover:shadow-2xl transition scroll-reveal">
-                    <div class="text-6xl mb-6">🏗️</div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Vinyl & Wooden Flooring</h3>
-                    <p class="text-gray-600 text-lg">Waterproof vinyl, wooden laminate, SPC flooring for homes and offices</p>
+                <div class="bg-gradient-to-br from-orange-50 to-red-50 p-6 md:p-10 rounded-3xl shadow-lg hover:shadow-2xl transition scroll-reveal">
+                    <div class="text-4xl md:text-6xl mb-4 md:mb-6"><i class="fas fa-layer-group text-orange-600"></i></div>
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">Vinyl & Wooden Flooring</h3>
+                    <p class="text-gray-600 text-sm md:text-lg">Waterproof vinyl and laminate flooring</p>
                 </div>
 
-                <div class="bg-gradient-to-br from-teal-50 to-green-50 p-10 rounded-3xl shadow-lg hover:shadow-2xl transition scroll-reveal">
-                    <div class="text-6xl mb-6">🌿</div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Artificial Grass</h3>
-                    <p class="text-gray-600 text-lg">Natural-looking grass for balconies, terraces, gardens, and play areas</p>
+                <div class="bg-gradient-to-br from-teal-50 to-green-50 p-6 md:p-10 rounded-3xl shadow-lg hover:shadow-2xl transition scroll-reveal">
+                    <div class="text-4xl md:text-6xl mb-4 md:mb-6"><i class="fas fa-seedling text-teal-600"></i></div>
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">Artificial Grass</h3>
+                    <p class="text-gray-600 text-sm md:text-lg">Natural-looking grass for all spaces</p>
                 </div>
 
-                <div class="bg-gradient-to-br from-purple-50 to-indigo-50 p-10 rounded-3xl shadow-lg hover:shadow-2xl transition scroll-reveal">
-                    <div class="text-6xl mb-6">⚙️</div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Professional Installation</h3>
-                    <p class="text-gray-600 text-lg">Expert team with 100% quality guarantee, free consultation, and after-sales support</p>
+                <div class="bg-gradient-to-br from-purple-50 to-indigo-50 p-6 md:p-10 rounded-3xl shadow-lg hover:shadow-2xl transition scroll-reveal">
+                    <div class="text-4xl md:text-6xl mb-4 md:mb-6"><i class="fas fa-tools text-purple-600"></i></div>
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">Professional Installation</h3>
+                    <p class="text-gray-600 text-sm md:text-lg">Expert team with quality guarantee</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+    <section id="about" class="py-12 md:py-20 bg-gradient-to-br from-purple-50 to-pink-50">
         <div class="container mx-auto px-4">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 scroll-reveal">
-                    <span class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">ABOUT US</span>
-                    <h2 class="text-5xl md:text-6xl font-extrabold gradient-text mb-6">Hyderabad's Most Trusted Wallpaper Experts</h2>
+                <div class="text-center mb-12 md:mb-16 scroll-reveal">
+                    <span class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4">ABOUT US</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold gradient-text mb-4 md:mb-6">Hyderabad's Most Trusted Wallpaper Experts</h2>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                     <div class="scroll-reveal">
-                        <p class="text-gray-700 text-xl mb-6 leading-relaxed">
-                            Star Wall Interio is Hyderabad's premier destination for 3D & 5D wallpapers, window blinds, designer curtains, vinyl flooring, and artificial grass. With years of experience and thousands of satisfied customers, we specialize in complete interior solutions for homes, offices, and commercial spaces.
+                        <p class="text-gray-700 text-base md:text-xl mb-4 md:mb-6 leading-relaxed">
+                            Star Wall Interio is Hyderabad's premier destination for premium interior solutions. With years of experience and thousands of satisfied customers, we specialize in transforming spaces with our extensive collection.
                         </p>
-                        <p class="text-gray-700 text-xl mb-8 leading-relaxed">
-                            We offer over 10,000+ designs in wallpapers including textured, embossed, imported, and custom patterns. Our product range includes all types of blinds, curtains, flooring solutions, and landscaping products for all your interior needs.
+                        <p class="text-gray-700 text-base md:text-xl mb-6 md:mb-8 leading-relaxed">
+                            We offer over 10,000+ designs including 3D & 5D wallpapers, window blinds, designer curtains, flooring solutions, and artificial grass for all your interior needs.
                         </p>
-                        <div class="space-y-4">
-                            <div class="flex items-center space-x-3 transform hover:translate-x-2 transition">
-                                <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center">
-                                    <span class="text-3xl">✓</span>
+                        <div class="space-y-3 md:space-y-4">
+                            <div class="flex items-center space-x-3 md:space-x-4">
+                                <div class="w-10 h-10 md:w-14 md:h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-check text-lg md:text-2xl text-green-600"></i>
                                 </div>
-                                <span class="text-gray-700 text-xl font-semibold">Complete Interior Solutions</span>
+                                <span class="text-gray-700 text-base md:text-xl font-semibold">Complete Interior Solutions</span>
                             </div>
-                            <div class="flex items-center space-x-3 transform hover:translate-x-2 transition">
-                                <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center">
-                                    <span class="text-3xl">✓</span>
+                            <div class="flex items-center space-x-3 md:space-x-4">
+                                <div class="w-10 h-10 md:w-14 md:h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-check text-lg md:text-2xl text-green-600"></i>
                                 </div>
-                                <span class="text-gray-700 text-xl font-semibold">10,000+ Premium Designs</span>
+                                <span class="text-gray-700 text-base md:text-xl font-semibold">10,000+ Premium Designs</span>
                             </div>
-                            <div class="flex items-center space-x-3 transform hover:translate-x-2 transition">
-                                <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center">
-                                    <span class="text-3xl">✓</span>
+                            <div class="flex items-center space-x-3 md:space-x-4">
+                                <div class="w-10 h-10 md:w-14 md:h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-check text-lg md:text-2xl text-green-600"></i>
                                 </div>
-                                <span class="text-gray-700 text-xl font-semibold">Free Site Visit & Consultation</span>
+                                <span class="text-gray-700 text-base md:text-xl font-semibold">Free Site Visit & Consultation</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="text-center p-10 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition scroll-reveal transform hover:scale-105">
-                            <div class="stat-number text-6xl font-extrabold text-purple-600 mb-2">10k+</div>
-                            <div class="text-gray-600 font-semibold text-lg">Designs</div>
+                    <div class="grid grid-cols-2 gap-4 md:gap-6">
+                        <div class="text-center p-6 md:p-10 bg-white rounded-3xl shadow-xl scroll-reveal">
+                            <div class="text-4xl md:text-6xl font-extrabold text-purple-600 mb-2">10k+</div>
+                            <div class="text-gray-600 font-semibold text-sm md:text-lg">Designs</div>
                         </div>
-                        <div class="text-center p-10 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition scroll-reveal transform hover:scale-105">
-                            <div class="stat-number text-6xl font-extrabold text-blue-600 mb-2">5000+</div>
-                            <div class="text-gray-600 font-semibold text-lg">Happy Clients</div>
+                        <div class="text-center p-6 md:p-10 bg-white rounded-3xl shadow-xl scroll-reveal">
+                            <div class="text-4xl md:text-6xl font-extrabold text-blue-600 mb-2">5000+</div>
+                            <div class="text-gray-600 font-semibold text-sm md:text-lg">Happy Clients</div>
                         </div>
-                        <div class="text-center p-10 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition scroll-reveal transform hover:scale-105">
-                            <div class="stat-number text-6xl font-extrabold text-green-600 mb-2">100%</div>
-                            <div class="text-gray-600 font-semibold text-lg">Quality</div>
+                        <div class="text-center p-6 md:p-10 bg-white rounded-3xl shadow-xl scroll-reveal">
+                            <div class="text-4xl md:text-6xl font-extrabold text-green-600 mb-2">100%</div>
+                            <div class="text-gray-600 font-semibold text-sm md:text-lg">Quality</div>
                         </div>
-                        <div class="text-center p-10 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition scroll-reveal transform hover:scale-105">
-                            <div class="stat-number text-6xl font-extrabold text-orange-600 mb-2">₹40</div>
-                            <div class="text-gray-600 font-semibold text-lg">Per Sq Ft</div>
+                        <div class="text-center p-6 md:p-10 bg-white rounded-3xl shadow-xl scroll-reveal">
+                            <div class="text-4xl md:text-6xl font-extrabold text-orange-600 mb-2">₹40</div>
+                            <div class="text-gray-600 font-semibold text-sm md:text-lg">Per Sq Ft</div>
                         </div>
                     </div>
                 </div>
@@ -585,58 +587,77 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gradient-to-br from-purple-600 to-pink-600 text-white">
+    <section id="contact" class="py-12 md:py-20 bg-gradient-to-br from-purple-600 to-pink-600 text-white">
         <div class="container mx-auto px-4">
             <div class="max-w-5xl mx-auto text-center">
-                <h2 class="text-5xl md:text-6xl font-extrabold mb-6 scroll-reveal">Let's Transform Your Space</h2>
-                <p class="text-2xl text-purple-100 mb-16 scroll-reveal">Get in touch with us today for a free consultation</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 md:mb-6 scroll-reveal">Let's Transform Your Space</h2>
+                <p class="text-lg md:text-2xl text-purple-100 mb-12 md:mb-16 scroll-reveal">Get in touch with us today for a free consultation</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    <a href="tel:+919959509911" class="bg-white/10 backdrop-blur-md p-10 rounded-3xl hover:bg-white/20 transition scroll-reveal transform hover:scale-105">
-                        <div class="text-5xl mb-6">📞</div>
-                        <h3 class="text-2xl font-bold mb-3">Call Us</h3>
-                        <p class="text-purple-100 text-lg">+91 99595 09911</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+                    <a href="tel:+919959509911" class="bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-3xl hover:bg-white/20 transition scroll-reveal">
+                        <div class="text-3xl md:text-5xl mb-4 md:mb-6"><i class="fas fa-phone-alt"></i></div>
+                        <h3 class="text-lg md:text-2xl font-bold mb-2 md:mb-3">Call Us</h3>
+                        <p class="text-purple-100 text-sm md:text-lg">+91 99595 09911</p>
                     </a>
 
-                    <a href="https://wa.me/919959509911" target="_blank" class="bg-white/10 backdrop-blur-md p-10 rounded-3xl hover:bg-white/20 transition scroll-reveal transform hover:scale-105">
-                        <div class="text-5xl mb-6">💬</div>
-                        <h3 class="text-2xl font-bold mb-3">WhatsApp</h3>
-                        <p class="text-purple-100 text-lg">Chat Instantly</p>
+                    <a href="https://wa.me/919959509911" target="_blank" class="bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-3xl hover:bg-white/20 transition scroll-reveal">
+                        <div class="text-3xl md:text-5xl mb-4 md:mb-6"><i class="fab fa-whatsapp"></i></div>
+                        <h3 class="text-lg md:text-2xl font-bold mb-2 md:mb-3">WhatsApp</h3>
+                        <p class="text-purple-100 text-sm md:text-lg">Chat Instantly</p>
                     </a>
 
-                    <a href="mailto:info@starwallinterio.com" class="bg-white/10 backdrop-blur-md p-10 rounded-3xl hover:bg-white/20 transition scroll-reveal transform hover:scale-105">
-                        <div class="text-5xl mb-6">📧</div>
-                        <h3 class="text-2xl font-bold mb-3">Email Us</h3>
-                        <p class="text-purple-100 text-lg">info@starwallinterio.com</p>
+                    <a href="mailto:info@starwallinterio.com" class="bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-3xl hover:bg-white/20 transition scroll-reveal sm:col-span-2 lg:col-span-1">
+                        <div class="text-3xl md:text-5xl mb-4 md:mb-6"><i class="fas fa-envelope"></i></div>
+                        <h3 class="text-lg md:text-2xl font-bold mb-2 md:mb-3">Email Us</h3>
+                        <p class="text-purple-100 text-sm md:text-lg break-all">info@starwallinterio.com</p>
                     </a>
-                </div>
-
-                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-12 scroll-reveal">
-                    <h3 class="text-3xl font-bold mb-6">📍 Visit Our Showroom</h3>
-                    <p class="text-xl mb-6">Hyderabad, Telangana, India</p>
-                    <p class="text-purple-100 text-lg"><strong>Business Hours:</strong><br/>Mon-Sat: 9AM-8PM | Sun: 10AM-6PM</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-4xl font-bold mb-4">Star Wall Interio</h3>
-            <p class="text-gray-400 text-lg mb-6">Premium 3D & 5D Wallpapers | Hyderabad's Most Trusted</p>
-            <p class="text-gray-500">© 2025 Star Wall Interio. All rights reserved.</p>
+    <footer class="bg-gray-900 text-white py-8 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center mb-6">
+                <img src="star-wall-logo.png" alt="Star Wall Interio Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain">
+            </div>
+            <div class="text-center">
+                <h3 class="text-2xl md:text-4xl font-bold mb-4">Star Wall Interio</h3>
+                <p class="text-gray-400 text-sm md:text-lg mb-6">Premium 3D & 5D Wallpapers | Hyderabad's Most Trusted</p>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition text-xl md:text-2xl"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition text-xl md:text-2xl"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/919959509911" class="text-gray-400 hover:text-white transition text-xl md:text-2xl"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="text-gray-500 text-sm">© 2025 Star Wall Interio. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/919959509911?text=Hi%20Star%20Wall%20Interio!%20I'm%20interested%20in%203D/5D%20wallpapers" target="_blank" class="whatsapp-float" aria-label="Contact us on WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" width="36" height="36">
-            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-        </svg>
+        <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
     <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
         // Scroll Reveal Animation
         function reveal() {
             const reveals = document.querySelectorAll('.scroll-reveal');
@@ -644,7 +665,7 @@
             reveals.forEach(element => {
                 const windowHeight = window.innerHeight;
                 const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
+                const elementVisible = 100;
                 
                 if (elementTop < windowHeight - elementVisible) {
                     element.classList.add('revealed');
