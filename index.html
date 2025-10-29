@@ -514,8 +514,8 @@
                     <i class="fas fa-clock text-3xl md:text-4xl text-purple-600 mb-4"></i>
                     <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">Business Hours</h3>
                     <p class="text-base md:text-lg text-gray-600">
-                        <strong>Monday - Saturday:</strong> 10:00 AM - 8:00 PM<br/>
-                        <strong>Sunday:</strong> 10:00 AM - 9:00 PM
+                        <strong>Monday - Friday:</strong> 10:00 AM - 8:00 PM<br/>
+                        <strong>Saturday & Sunday:</strong> 10:00 AM - 9:00 PM
                     </p>
                 </div>
             </div>
@@ -743,14 +743,14 @@
             let nextChangeTime = '';
             
             // Business Hours:
-            // Monday - Saturday: 9:00 AM - 8:00 PM (540 - 1200 minutes)
-            // Sunday: 10:00 AM - 6:00 PM (600 - 1080 minutes)
+            // Monday - Friday: 10:00 AM - 8:00 PM (600 - 1200 minutes)
+            // Saturday - Sunday: 10:00 AM - 9:00 PM (600 - 1260 minutes)
             
-            if (currentDay === 0) { // Sunday
-                if (currentTimeInMinutes >= 600 && currentTimeInMinutes < 1080) {
+            if (currentDay === 0 || currentDay === 6) { // Sunday or Saturday
+                if (currentTimeInMinutes >= 600 && currentTimeInMinutes < 1260) {
                     isOpen = true;
                     statusMessage = 'Open';
-                    nextChangeTime = '• Closes 6 PM';
+                    nextChangeTime = '• Closes 9 PM';
                 } else if (currentTimeInMinutes < 600) {
                     isOpen = false;
                     statusMessage = 'Closed';
@@ -758,28 +758,27 @@
                 } else {
                     isOpen = false;
                     statusMessage = 'Closed';
-                    nextChangeTime = '• Opens tomorrow at 9 AM';
+                    nextChangeTime = '• Opens tomorrow at 10 AM';
                 }
-            } else if (currentDay >= 1 && currentDay <= 6) { // Monday - Saturday
-                if (currentTimeInMinutes >= 540 && currentTimeInMinutes < 1200) {
+            } else if (currentDay >= 1 && currentDay <= 5) { // Monday - Friday
+                if (currentTimeInMinutes >= 600 && currentTimeInMinutes < 1200) {
                     isOpen = true;
                     statusMessage = 'Open';
                     nextChangeTime = '• Closes 8 PM';
-                } else if (currentTimeInMinutes < 540) {
+                } else if (currentTimeInMinutes < 600) {
                     isOpen = false;
                     statusMessage = 'Closed';
-                    nextChangeTime = '• Opens at 9 AM';
+                    nextChangeTime = '• Opens at 10 AM';
                 } else {
                     isOpen = false;
                     statusMessage = 'Closed';
-                    if (currentDay === 6) { // Saturday
+                    if (currentDay === 5) { // Friday
                         nextChangeTime = '• Opens tomorrow at 10 AM';
                     } else {
-                        nextChangeTime = '• Opens tomorrow at 9 AM';
+                        nextChangeTime = '• Opens tomorrow at 10 AM';
                     }
                 }
             }
-            
             // Update both branches (they have the same hours)
             updateBranchStatus('1', isOpen, statusMessage, nextChangeTime);
             updateBranchStatus('2', isOpen, statusMessage, nextChangeTime);
