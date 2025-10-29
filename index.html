@@ -457,9 +457,9 @@
                                 </p>
                             </div>
                             <div class="flex items-center space-x-2 text-sm text-gray-600 mb-4">
-                                <i class="fas fa-clock text-green-600"></i>
-                                <span class="font-semibold text-green-600">Open</span>
-                                <span>• Closes 8 PM</span>
+                                <i class="fas fa-clock" id="status-icon-1"></i>
+                                <span class="font-semibold" id="status-text-1"></span>
+                                <span id="status-time-1"></span>
                             </div>
                             <div class="flex flex-col sm:flex-row gap-3">
                                 <a href="https://maps.app.goo.gl/dcNvxQgoeeiYKBWZA" target="_blank" class="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition text-center">
@@ -491,9 +491,9 @@
                                 </p>
                             </div>
                             <div class="flex items-center space-x-2 text-sm text-gray-600 mb-4">
-                                <i class="fas fa-clock text-green-600"></i>
-                                <span class="font-semibold text-green-600">Open</span>
-                                <span>• Closes 8 PM</span>
+                                <i class="fas fa-clock" id="status-icon-2"></i>
+                                <span class="font-semibold" id="status-text-2"></span>
+                                <span id="status-time-2"></span>
                             </div>
                             <div class="flex flex-col sm:flex-row gap-3">
                                 <a href="https://maps.app.goo.gl/Y6XfX5uHVUzSv6k18" target="_blank" class="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition text-center">
@@ -514,8 +514,8 @@
                     <i class="fas fa-clock text-3xl md:text-4xl text-purple-600 mb-4"></i>
                     <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">Business Hours</h3>
                     <p class="text-base md:text-lg text-gray-600">
-                        <strong>Monday - Saturday:</strong> 10:00 AM - 8:00 PM<br/>
-                        <strong>Sunday:</strong> 10:00 AM - 9:00 PM
+                        <strong>Monday - Saturday:</strong> 9:00 AM - 8:00 PM<br/>
+                        <strong>Sunday:</strong> 10:00 AM - 6:00 PM
                     </p>
                 </div>
             </div>
@@ -725,6 +725,86 @@
     </a>
 
     <script>
+        // Business Hours Status Checker
+        function updateBusinessStatus() {
+            // Get current time in IST (Indian Standard Time)
+            const now = new Date();
+            const istOffset = 5.5 * 60; // IST is UTC+5:30
+            const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const istTime = new Date(utcTime + (istOffset * 60000));
+            
+            const currentDay = istTime.getDay(); // 0 = Sunday, 1 = Monday, etc.
+            const currentHour = istTime.getHours();
+            const currentMinute = istTime.getMinutes();
+            const currentTimeInMinutes = currentHour * 60 + currentMinute;
+            
+            let isOpen = false;
+            let statusMessage = '';
+            let nextChangeTime = '';
+            
+            // Business Hours:
+            // Monday - Saturday: 9:00 AM - 8:00 PM (540 - 1200 minutes)
+            // Sunday: 10:00 AM - 6:00 PM (600 - 1080 minutes)
+            
+            if (currentDay === 0) { // Sunday
+                if (currentTimeInMinutes >= 600 && currentTimeInMinutes < 1080) {
+                    isOpen = true;
+                    statusMessage = 'Open';
+                    nextChangeTime = '• Closes 6 PM';
+                } else if (currentTimeInMinutes < 600) {
+                    isOpen = false;
+                    statusMessage = 'Closed';
+                    nextChangeTime = '• Opens at 10 AM';
+                } else {
+                    isOpen = false;
+                    statusMessage = 'Closed';
+                    nextChangeTime = '• Opens tomorrow at 9 AM';
+                }
+            } else if (currentDay >= 1 && currentDay <= 6) { // Monday - Saturday
+                if (currentTimeInMinutes >= 540 && currentTimeInMinutes < 1200) {
+                    isOpen = true;
+                    statusMessage = 'Open';
+                    nextChangeTime = '• Closes 8 PM';
+                } else if (currentTimeInMinutes < 540) {
+                    isOpen = false;
+                    statusMessage = 'Closed';
+                    nextChangeTime = '• Opens at 9 AM';
+                } else {
+                    isOpen = false;
+                    statusMessage = 'Closed';
+                    if (currentDay === 6) { // Saturday
+                        nextChangeTime = '• Opens tomorrow at 10 AM';
+                    } else {
+                        nextChangeTime = '• Opens tomorrow at 9 AM';
+                    }
+                }
+            }
+            
+            // Update both branches (they have the same hours)
+            updateBranchStatus('1', isOpen, statusMessage, nextChangeTime);
+            updateBranchStatus('2', isOpen, statusMessage, nextChangeTime);
+        }
+        
+        function updateBranchStatus(branchId, isOpen, statusMessage, nextChangeTime) {
+            const icon = document.getElementById(`status-icon-${branchId}`);
+            const text = document.getElementById(`status-text-${branchId}`);
+            const time = document.getElementById(`status-time-${branchId}`);
+            
+            if (icon && text && time) {
+                if (isOpen) {
+                    icon.className = 'fas fa-clock text-green-600';
+                    text.className = 'font-semibold text-green-600';
+                    text.textContent = statusMessage;
+                    time.textContent = nextChangeTime;
+                } else {
+                    icon.className = 'fas fa-clock text-red-600';
+                    text.className = 'font-semibold text-red-600';
+                    text.textContent = statusMessage;
+                    time.textContent = nextChangeTime;
+                }
+            }
+        }
+
         // Image Gallery Configuration
         // Replace these placeholder images with your actual image paths
         const galleryImages = {
@@ -784,6 +864,7 @@
                 'images/grass/grass8.jpg',
                 
             ]
+
         };
 
         // Initialize Gallery
@@ -880,7 +961,13 @@
         });
 
         // Initialize gallery when page loads
-        window.addEventListener('DOMContentLoaded', initializeGallery);
+        window.addEventListener('DOMContentLoaded', function() {
+            initializeGallery();
+            updateBusinessStatus();
+            
+            // Update business status every minute
+            setInterval(updateBusinessStatus, 60000);
+        });
     </script>
 </body>
 </html>
